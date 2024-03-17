@@ -31,10 +31,11 @@ header {
     display: flex;
     align-items: center;
     padding: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--scarlet-400);
     
 }
 header #name{
-    font-family: 'Times New Roman', Times, serif;
     text-align:center;
     letter-spacing: .1rem;
     font-size: 4vw;
@@ -46,15 +47,26 @@ header #logo{
 
 }
 
-/* Apply flexbox layout to main content */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+#login a{
+    margin-left: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--scarlet-400);
+    font-size: large;
+    font-display:  block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-/* Style the list */
+#login a:hover{
+    background-color: var(--scarlet-403)!important;
+}
+
+#cart a{
+    margin-left: 80px;
+}
+
+
+
 #bar ul {
     list-style: none;
     padding: 10px;
@@ -63,8 +75,9 @@ main {
 }
 
 #bar ul li {
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
+    
 }
 
 #bar ul li a {
@@ -78,6 +91,8 @@ main {
     border-radius: 5%;
     padding: auto;
 }
+
+
 
 /* Style the search bar */
 #search {
@@ -100,3 +115,4 @@ main {
     cursor: pointer;
     margin-left: 10px;
 }
+
