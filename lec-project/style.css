@@ -1,0 +1,186 @@
+
+:root {
+    --scarlet-400:#C25E77  ;
+    --scarlet-401:#F1D4DA;
+    --scarlet-402:#E19FAE;
+    --scarlet-403:#EDC9D1;
+    --scarlet-404:#F5F4F1;
+
+   
+  }
+  
+
+  
+#index_page{
+     background-color:var(--scarlet-404) ;
+}
+
+#name{
+    color:var(--scarlet-400) ;
+}
+
+
+
+body, header, main {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply flexbox layout to header */
+header {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--scarlet-400);
+    
+    
+}
+header #name{
+    text-align:center;
+    letter-spacing: .1rem;
+    font-size: 4vw;
+    margin-left: 10%;
+}
+
+header #logo{
+    position: relative;
+
+}
+
+#login a{
+    margin-left: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--scarlet-400);
+    font-size: large;
+    font-display:  block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#login a:hover{
+    background-color: var(--scarlet-403)!important;
+}
+
+#cart a{
+    margin-left: 80px;
+}
+
+
+
+#bar ul {
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+}
+
+#bar ul li {
+    margin-right: 20px;
+    cursor: pointer;
+    
+}
+
+#bar ul li a {
+    text-decoration: none;
+    color: var(--scarlet-400);
+    
+}
+
+#bar ul li a:hover {
+    background-color: var(--scarlet-403);
+    border-radius: 5%;
+    padding: auto;
+}
+
+
+
+/* Style the search bar */
+#search {
+    margin-top: 20px;
+}
+
+#search input[type="search"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin-left: 30%;
+}
+
+#search button {
+    padding: 8px 20px;
+    border: none;
+    background-color: var(--scarlet-400);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+hr {
+    border: none; /* Remove default border */
+    height: 1px; /* Set height */
+    background-color: var(--scarlet-400); 
+    margin: 20px 0; 
+}
+
+.social-icons-bth{
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .icons {
+    background-color: var(--scarlet-403);
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0.2rem;
+    display: inline-flex ;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 
+      0 2px 2px #d1d1d1;
+    color: #fff;
+    cursor: pointer;
+    transition:all 0.15s ease;
+    margin-left: 135px;
+  }
+  
+  .twitter:hover {
+    background: #00ECEE;
+  }
+  
+  .facebook:hover {
+    background: #4267B2;
+  }
+  
+  .instagram:hover {
+    background-image: 
+      linear-gradient(
+      #8a3ab9,
+      #e95950, 
+      #bc2a8d, 
+      #fccc63
+      );
+  }
+ 
+  .emailIcon:hover{
+    background: pink;
+  }
+
+  #copyright{
+    font-size: medium;
+    text-align: left;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 3%;
+    padding-bottom: 0.5%;
+  }
+
+
+
+
