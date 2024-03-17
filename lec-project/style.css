@@ -21,76 +21,55 @@
 
 
 
-body, header, main {
-    margin: 0;
-    padding: 0;
-}
-
-/* Apply flexbox layout to header */
-header {
+#header{
     display: flex;
     align-items: center;
-    padding: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    color: var(--scarlet-400);
-    
-    
-}
-header #name{
-    text-align:center;
-    letter-spacing: .1rem;
-    font-size: 4vw;
-    margin-left: 10%;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: var(--scarlet-404);
+    box-shadow: 0 5px 15px rgb(0,0,0,0.06);
 }
 
-header #logo{
-    position: relative;
-
-}
-
-#login a{
-    margin-left: 90%;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--scarlet-400);
-    font-size: large;
-    font-display:  block;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#login a:hover{
-    background-color: var(--scarlet-403)!important;
-}
-
-#cart a{
-    margin-left: 80px;
-}
-
-
-
-#bar ul {
-    list-style: none;
-    padding: 10px;
-    margin: 10px;
+#navbar{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#bar ul li {
-    margin-right: 20px;
-    cursor: pointer;
-    
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
 }
 
-#bar ul li a {
+#navbar li a{
     text-decoration: none;
-    color: var(--scarlet-400);
-    
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--scarlet-402);
+    transition: 0.3s ease;
 }
 
-#bar ul li a:hover {
-    background-color: var(--scarlet-403);
-    border-radius: 5%;
-    padding: auto;
+#navbar li a:hover{
+    color: var(--scarlet-400);
+
+}
+
+#navbar li a:hover , 
+#navbar li a.active{
+    color: var(--scarlet-400);
+
+}
+
+#navbar li a.active::after , #navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: var(--scarlet-400);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+
 }
 
 
@@ -116,7 +95,7 @@ header #logo{
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-}
+} */
 
 
 hr {
@@ -125,6 +104,15 @@ hr {
     background-color: var(--scarlet-400); 
     margin: 20px 0; 
 }
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around;
+    width: 100%; 
+    margin: auto; 
+  }
 
 .social-icons-bth{
     display: flex;
@@ -173,12 +161,18 @@ hr {
     background: pink;
   }
 
-  #copyright{
+  .copyright{
     font-size: medium;
     text-align: left;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-top: 3%;
     padding-bottom: 0.5%;
+  }
+
+  .copyright p{
+    font-size: medium;
+    text-align: left;
+    color: var(--scarlet-400);
   }
 
 
