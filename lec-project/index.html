@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
     <title>Glamarket</title>
 </head>
 <body>
     <header>
-        <section id="logo">
+        <section id="logo" class="logo">
             <img src="media/logo/Pink Bold Retro Aesthetic Makeup Artist Circle Logo (1).png" width="150" height="auto"/>
         </section>
 
-        <section id="name">
+        <section id="name" class="name">
             <h1>Glamarket</h1>
         </section>
 
@@ -19,20 +20,21 @@
 
     <main>
         <section id="bar">
+            <nav>
             <ul>
-                <li id="face">Face Products</li>
-                <li id="lip">Lip Products</li>
-                <li id="eye">Eye Products</li>
-                <li id="remover">Makeup Remover Products</li>
-                <li id="Set">Setting Spray Products</li>
+                <li id="face"><a href=#face>Face Products</a></li>
+                <li id="lip"><a href=#lip>Lip Products</a></li>
+                <li id="eye"><a href=#eye>Eye Products</a></li>
+                <li id="remover"><a href=#remover>Makeup Remover Products</a></li>
+                <li id="Set"><a href="#set">Setting Spray Products</a></li>
             </ul>
+        </nav>
         </section>
 
+    <div class="cls">
         <section id="cart">
             <a href="/lec-project/cart.html" <li><img src="media/logo/cart/shopping-basket.svg" alt="cart"/></li></a>
         </section>
-
-      
 
         <section id="login">
             <a href="/lec-project/login.html">Login </a>
@@ -42,8 +44,64 @@
             <input type="search">
             <button type="submit">Search</button>
         </section>
+    </div>
 
-        
+        <section class="products grid">
+            <article class="card">
+                <img src="/media/Products/ALL-IN-ONE EYE & CHEEK PALETTE.png">
+                <h4>ALL-IN-ONE EYE & CHEEK PALETTE</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+            <article class="card">
+                <img src="/media/Products/Baked Glow Setting Powder-Cappuccino.png">
+                <h4>Baked Glow Setting Powder-Cappuccino</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+            <article class="card">
+                <img src="/media/Products/Birthday Skin Primer.png">
+                <h4>Birthday Skin Primer</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+            <article class="card">
+                <img src="/media/Products/EXPRESS BROW™ SHAPING PENCIL.png">
+                <h4>EXPRESS BROW™ SHAPING PENCIL</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+            <article class="card">
+                <img src="/media/Products/Ice Queen Plumping Lip Gloss-Ice Queen.png">
+                <h4>Ice Queen Plumping Lip Gloss-Ice Queen</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+            <article class="card">
+                <img src="/media/Products/Sweet Cheeks Blush Trio-Enamored.png">
+                <h4>Sweet Cheeks Blush Trio-Enamored</h4>
+                <div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number", id="quantity", name="quantity", max="10", min="1">
+                </div>
+                <button>Add To Cart</button>
+            </article>
+        </section>
     </main>
     
 </body>
