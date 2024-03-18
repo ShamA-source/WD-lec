@@ -11,7 +11,7 @@
   
 
   
-#index_page{
+.index_page{
      background-color:var(--scarlet-404) ;
 }
 
@@ -62,32 +62,35 @@ body{
   width: 100%;
 }
 
-#header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header{
     padding: 20px 80px;
     background-color: var(--scarlet-404);
     box-shadow: 0 5px 15px rgb(0,0,0,0.06);
-    z-index: 999;
-    position: sticky;
-    top: 0;
-    left: 0;
-}
-
-#navbar{
     display: flex;
-    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    grid-area: header;
 }
 
-#navbar li{
+nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-area: nav;
+
+}
+
+nav li{
     list-style: none;
     padding: 0 20px;
     position: relative;
 }
 
-#navbar li a{
+nav li a{
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
@@ -95,18 +98,18 @@ body{
     transition: 0.3s ease;
 }
 
-#navbar li a:hover{
+nav li a:hover{
     color: var(--scarlet-400);
 
 }
 
-#navbar li a:hover , 
-#navbar li a.active{
+nav li a:hover , 
+nav li a.active{
     color: var(--scarlet-400);
 
 }
 
-#navbar li a.active::after , #navbar li a:hover::after{
+nav li a.active::after , nav li a:hover::after{
     content: "";
     width: 30%;
     height: 2px;
@@ -118,8 +121,8 @@ body{
 }
 
 
-#hero{
-  background-image: url(/lec-project/media/Products/pink-background.avif);
+.hero{
+  background-image: url(/media/Products/pink-background.avif);
   background-color: transparent;
   height: 40vh;
   width: 100%;
@@ -128,46 +131,48 @@ body{
   padding: 0 80px;
   display: flex;
   flex-direction: column;
-  align-items: self-start;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  grid-area: hero;
+
 }
 
-#hero h4{
+.hero h4{
   padding-bottom: 15px;
   color: var(--scarlet-400);
 }
-#hero h2 ,p{
+.hero h2 ,p{
   color: var(--scarlet-400);
 }
-#hero h1{
+.hero h1{
   color: white;
 
 }
 
-#hero button{
+.hero button{
   background-color: var(--scarlet-400);
   border:0;
-  padding: 14px 80px 14px 65px;
+  padding: 10px;
   cursor: pointer;
   font-weight: 900;
   font-size: 20px;
-  margin-left: 20px;
   border-radius: 50px;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
 
 
 }
 
-#product1{
+.section-p1{
   text-align: center;
-}
-#product1 h2{
   color: var(--scarlet-400);
   
 }
 
-#product1 .pro{
-  width: 23%;
+.pro{
+  width: 100%;
   min-width: 250px;
   padding: 10px 12px;
   border: 1px solid var(--scarlet-403);
@@ -177,48 +182,49 @@ body{
   margin: 15px 0;
   transition: 0.2s ease;
   position: relative;
+  grid-area: pro;
 }
 
-#product1 .pro:hover{
+.pro:hover{
   box-shadow: 20px 20px 30px rgba(0,0,0,0.06);
 
 }
 
-#product1 .pro img{
+.pro img{
   width:100%;
   border-radius: 20px;
 }
 
-#product1 .pro .des{
+.pro .des{
   text-align: start;
   padding: 10px 0;
 
 }
 
-#product1 .pro .des span{
+.pro .des span{
   color: gray;
   font-size: 12px;
 }
 
-#product1 .pro .des h5{
+.pro .des h5{
   padding-top: 7px;
   color: black;
   font-size: 14px;
 }
 
-#product1 .pro .des i{
+.pro .des i{
   font-size: 12px;
   color: rgb(243,181,25);
 }
 
-#product1 .pro .des h4{
+.pro .des h4{
   padding-top: 7px;
   font-size: 15px;
   font-weight: 700;
   color: var(--scarlet-400);
 }
 
-#product1 .pro a{
+.pro a{
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -231,7 +237,17 @@ body{
   bottom: 20px;
   right: 10px;
 }
-
+footer{
+  .social-icons-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: footer;
+}
 
 
 
@@ -260,23 +276,6 @@ body{
     cursor: pointer;
     margin-left: 10px;
 }  */
-
-
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: space-around;
-    width: 100%; 
-    margin: auto; 
-  }
-
-.social-icons-bth{
-    display: flex;
-    margin-top: 20px;
-  }
-  
   .icons {
     background-color: var(--scarlet-403);
     width: 80px;
@@ -332,7 +331,28 @@ body{
     text-align: left;
     color: var(--scarlet-400);
   }
+@media screen and (min-width:60rem){
+  body{
+    grid-template-rows:1.2fr auto auto 0.3;
+    grid-template-columns: 6fr 1fr;
+    grid-template-areas:
+    "header nav"
+    "pro pro"
+    "hero hero"
+    "footer footer";
 
+    nav ul{
+      display: flex;
+      align-items: center;
+      gap:15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      grid-area: nav;
+  
+  }
+  }
+}
 
 
 
