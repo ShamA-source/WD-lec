@@ -170,7 +170,15 @@ nav li a.active::after , nav li a:hover::after{
   color: var(--scarlet-400);
   
 }
-
+.pro-container {
+  margin-bottom:30px;
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+}
 .pro{
   width: 100%;
   min-width: 250px;
@@ -178,13 +186,11 @@ nav li a.active::after , nav li a:hover::after{
   border: 1px solid var(--scarlet-403);
   border-radius: 25px;
   cursor: pointer;
-  box-shadow: 20px 20px 30px rgba(0,0,0,0.02);
   margin: 15px 0;
   transition: 0.2s ease;
   position: relative;
-  grid-area: pro;
+  
 }
-
 .pro:hover{
   box-shadow: 20px 20px 30px rgba(0,0,0,0.06);
 
@@ -193,6 +199,7 @@ nav li a.active::after , nav li a:hover::after{
 .pro img{
   width:100%;
   border-radius: 20px;
+  align-self: center;
 }
 
 .pro .des{
@@ -276,6 +283,7 @@ footer{
     cursor: pointer;
     margin-left: 10px;
 }  */
+
   .icons {
     background-color: var(--scarlet-403);
     width: 80px;
@@ -331,28 +339,38 @@ footer{
     text-align: left;
     color: var(--scarlet-400);
   }
-@media screen and (min-width:60rem){
-  body{
-    grid-template-rows:1.2fr auto auto 0.3;
-    grid-template-columns: 6fr 1fr;
-    grid-template-areas:
-    "header nav"
-    "pro pro"
-    "hero hero"
-    "footer footer";
+@media screen and (min-width:40rem){
+header{
+  box-shadow: none;
+}
+nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-self:cente;
+  display: flex;
+  flex-wrap: wrap;
+}
+.headerAndNav{
+  display: flex;
+  justify-self: unset;
 
-    nav ul{
-      display: flex;
-      align-items: center;
-      gap:15px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      grid-area: nav;
-  
-  }
-  }
+}
+.pro{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: calc(25% - 20px);
+}
+.pro-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three columns layout */
+  gap: 20px;
 }
 
-
-
+}
+@media screen and (max-width: 60rem) {
+  .pro-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  }
+}
