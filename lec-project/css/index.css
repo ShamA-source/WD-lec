@@ -244,6 +244,10 @@ nav li a.active::after , nav li a:hover::after{
   bottom: 20px;
   right: 10px;
 }
+
+
+
+
 footer{
   .social-icons-btn{
     display: flex;
@@ -256,33 +260,6 @@ footer{
   grid-area: footer;
 }
 
-
-
-
-
-
-/* Style the search bar */
-/* #search {
-    margin-top: 20px;
-}
-
-#search input[type="search"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
-    margin-left: 30%;
-}
-
-#search button {
-    padding: 8px 20px;
-    border: none;
-    background-color: var(--scarlet-400);
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}  */
 
   .icons {
     background-color: var(--scarlet-403);
@@ -368,9 +345,9 @@ nav ul{
   gap: 20px;
 }
 
-}
-@media screen and (max-width: 60rem) {
-  .pro-container {
-    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
-  }
-}
+
+/* shop page */
+
+
+
+
