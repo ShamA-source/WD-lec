@@ -19,7 +19,48 @@
     color:var(--scarlet-400) ;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
 
+h1{
+  font-size: 50px;
+  line-height: 64px;
+}
+
+h2{
+  font-size: 46px;
+  line-height: 54px;
+}
+
+h4{
+  font-size: 20px;
+}
+
+h6{
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p{
+  font-size: 16px;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1{
+  padding: 40px 80px;
+}
+
+.section-m1{
+  margin:40px 0;
+}
+
+body{
+  width: 100%;
+}
 
 #header{
     display: flex;
@@ -28,6 +69,10 @@
     padding: 20px 80px;
     background-color: var(--scarlet-404);
     box-shadow: 0 5px 15px rgb(0,0,0,0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 #navbar{
@@ -73,9 +118,50 @@
 }
 
 
+#hero{
+  background-image: url(/lec-project/media/Products/pink-background.avif);
+  background-color: transparent;
+  height: 40vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top 25% right 0;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: center;
+}
+
+#hero h4{
+  padding-bottom: 15px;
+  color: var(--scarlet-400);
+}
+#hero h2 ,p{
+  color: var(--scarlet-400);
+}
+#hero h1{
+  color: white;
+
+}
+
+#hero button{
+  background-color: var(--scarlet-400);
+  border:0;
+  padding: 14px 80px 14px 65px;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 20px;
+  margin-left: 20px;
+  border-radius: 50px;
+  color: white;
+
+
+}
+
+
 
 /* Style the search bar */
-#search {
+/* #search {
     margin-top: 20px;
 }
 
@@ -95,7 +181,7 @@
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-} */
+}  */
 
 
 hr {
