@@ -473,3 +473,71 @@ nav ul{
 }
 
 
+/* blog page */
+
+.services-header{
+  background-image: url(/media/logo/blog-background.jpg);
+  width: 100%;
+  height: 87vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  padding: 35px;
+ 
+}
+
+.services-header p , h3{
+  font-size: x-large;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.services{
+  padding: 150px 150px 0 150px;
+}
+.services .services-box{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  /* padding-bottom :90px ; */
+}
+
+.services .services-img{
+  width: 50%;
+  margin-right: 40px;
+}
+
+.services img{
+  width: 80%; 
+  border-radius: 60px;
+}
+
+.services .div-detalis{
+  width: 50%;
+}
+
+.services .div-detalis p{
+  color: var(--scarlet-402);
+}
+
+.services .div-detalis h4{
+  color: var(--scarlet-400);
+}
+
+.services .services-box h1{
+  position: absolute;
+  top:-40px;
+  left: 0;
+  font-size: 70px;
+  font-weight: 700;
+  color: var(--scarlet-402);
+
+}
+
+
+
+
+
