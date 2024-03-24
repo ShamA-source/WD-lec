@@ -11,7 +11,7 @@
   
 
   
-.index_page{
+.index_page, .shop_page{
      background-color:var(--scarlet-404) ;
 }
 
