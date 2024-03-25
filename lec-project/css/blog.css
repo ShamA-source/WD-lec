@@ -134,7 +134,7 @@ nav li a.active::after , nav li a:hover::after{
     gap: 20px;
     
   }
-blog{
+.blog{
   width: 100%;
   min-width: 250px;
   padding: 10px 12px;
@@ -173,7 +173,19 @@ blog{
     color: black;
     font-size: 14px;
 }
-  
+.section-p1{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  img{
+    width: 20%;
+  }
+}
+.cruelty{
+  display: flex;
+  flex-direction: row;
+}
+
 
 
 
