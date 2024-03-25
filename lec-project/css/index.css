@@ -536,6 +536,155 @@ nav ul{
   color: var(--scarlet-402);
 
 }
+/* contact page  */
+
+.contact-header{
+  background-image: url(/media/logo/contact-background.jpg);
+  width: 100%;
+  height: 30vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  padding: 35px;
+ 
+}
+
+.contact-header h2 {
+  color: white;
+}
+.contact-header p{
+  color: white;
+  font-size: x-large;
+  font-weight: 400;
+}
+
+
+#contact-details{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#contact-details .details{
+  width: 40%;
+}
+
+#contact-details .details span, .form-details form span{
+  font-size: 12px;
+  color: var(--scarlet-400);
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#contact-details .details h2, .form-details form h2{
+  font-size: 26px;
+  line-height: 35px;
+  padding: 20px 0;
+  color: var(--scarlet-402);
+}
+
+
+
+#contact-details .details li{
+  list-style: none;
+  display: flex;
+  padding: 10px 0;
+}
+
+#contact-details .details li i{
+  font-size: 14px;
+  padding-right: 22px;
+}
+
+#contact-details .details li p{
+  margin: 0;
+  font-size: 14px;
+}
+
+#contact-details .map{
+  width:55% ;
+  height: 400px;
+}
+
+#contact-details .map iframe{
+  width: 100%;
+  height: 100%;
+}
+
+.form-details{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid var(--scarlet-400);
+}
+
+.form-details form{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-details form input, .form-details form textarea{
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid var(--scarlet-400);
+}
+
+.form-details button{
+  background-color: var(--scarlet-400);
+  color: var(--scarlet-401);
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 15px;
+  border-radius: 7px;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form-details .people div{
+  padding-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-details .people div img{
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.form-details .people div p{
+  margin: 0;
+  font-size: 13px;
+  line-height: 25px;
+  clear: var(--scarlet-402);
+}
+
+.form-details .people div p span{
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--scarlet-400);
+}
+
+
+
+
+
+
+
+
 
 
 
