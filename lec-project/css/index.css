@@ -239,6 +239,12 @@ nav li a.active::after , nav li a:hover::after{
   bottom: 20px;
   right: 10px;
 }
+.pro button{
+  width: 50%;
+  background-color: #E19FAE;
+  color: white;
+}
+
 footer{
   .social-icons-btn{
     display: flex;
