@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <title>Shipping Details</title>
 </head>
 <body>
+    <form>
     <h1>Shipping details</h1>
-
-    <fieldset>
         <legend>Shipping Address</legend>
         <label>Name:</label>
         <input type="text" id="name" name="name" required />
@@ -23,11 +23,15 @@
         <input type="text" id="House number" name="House number" required />
         <br>
         <label>Street number:</label>
-        <input type="text" id="Street number" name="Street number" required />       
-    </fieldset>
-
-    <h3>Payment method</h3>
-    <input type="button" id="cod" value="COD">
-    <input type="button" id="card" value="CARD">
+        <input type="text" id="Street number" name="Street number" required />   
+        <input type="submit" value="Submit">    
+    </form> 
+    <div class="payment-method">
+        <h3>Payment method:</h3>
+        <label for="cod">Cash on Delivery:</label>
+        <input type="button" id="cod" value="COD">
+        <label for="card">Card Payment:</label>
+        <input type="button" id="card" value="CARD">
+    </div>
 </body>
 </html>

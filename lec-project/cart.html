@@ -49,8 +49,8 @@
             <td><img src="/media/Products/face/face1.PNG"></td>
             <td>Cheek Palette</td>
             <td>50 QR</td>
-            <td><input type="number" value="1"></td>
-            <td>50 QR</td>
+            <td><input type="number" class="quantity" value="1" min="1" max="10" data-price="50"></td>
+            <td class="subtotal">50 QR</td>
             
         </tr>
 
@@ -59,8 +59,8 @@
             <td><img src="/media/Products/eye/eye2.PNG"></td>
             <td>Days In Bloom Length&Definition Mascara</td>
             <td>77 QR</td>
-            <td><input type="number" value="1"></td>
-            <td>77 QR</td>
+            <td><input type="number" class="quantity" value="1" min="1" max="10" data-price="77"></td>
+            <td class="subtotal">77 QR</td>
             
         </tr>
 
@@ -69,8 +69,8 @@
             <td><img src="/media/Products/lip/lip2.PNG"></td>
             <td>Days In Bloom Volumizing Lip Shine</td>
             <td>55 QR</td>
-            <td><input type="number" value="1"></td>
-            <td>55 QR</td>
+            <td><input type="number" class="quantity" value="1" min="1" max="10" data-price="55"></td>
+            <td class="subtotal">55 QR</td>
             
         </tr>
     </tbody>
@@ -93,7 +93,7 @@
         <table>
             <tr>
                 <td>Cart Subtotal</td>
-                <td>182 QR</td>
+                <td id="cartSubtotal">0 QR</td>
             </tr>
             <tr>
                 <td>Shipping</td>
@@ -101,7 +101,7 @@
             </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td><strong>182 QR</strong></td>
+                <td id="total"><strong>0 QR</strong></td>
             </tr>
         </table>
 
@@ -122,6 +122,7 @@
     <a href="#">2</a>
     <a href="#">→</a>
 </section>
+<script src="/js/script.js"></script>
 </body>
 <hr>
 
