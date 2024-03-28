@@ -34,5 +34,48 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.querySelector('.login-form');
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = loginForm.querySelector('input[type="text"]').value;
+      const password = loginForm.querySelector('input[type="password"]').value;
+
+      fetch('case1/users.json')
+        .then(response => response.json())
+        .then(data => {
+          const user = data.users.find(u => u.email === `${username}@${u.role}.com` && u.password === password);
+          if (user) {
+            // Redirect the user to the appropriate page based on role
+            switch (user.role) {
+              case 'customer':
+                window.location.href = 'customer_page.html';
+                break;
+              case 'seller':
+                window.location.href = 'seller_page.html';
+                break;
+              case 'admin':
+                window.location.href = 'admin_page.html';
+                break;
+              default:
+                // Handle unexpected role
+                console.error('Unknown user role');
+            }
+          } else {
+            alert('Invalid username or password');
+          }
+        })
+        .catch(error => console.error('Error fetching users:', error));
+    });
+  });
+</script>
+
+
+
+
+
 </body>
 </html>

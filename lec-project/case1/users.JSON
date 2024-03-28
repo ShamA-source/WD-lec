@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "username": "sham_amer",
+      "password": "123",
+      "role": "customer",
+      "email": "sham_amer@customer.com",
+      "full_name": "Sham Amer",
+      "name": "Sham",
+      "surname": "Amer",
+      "shipping_address": "803 St, Doha, Zone55",
+      "money_balance": 1000
+    },
+    {
+      "username": "reem_ali",
+      "password": "456",
+      "role": "customer",
+      "email": "reem_ali@customer.com",
+      "full_name": "Reem Ali",
+      "name": "Reem",
+      "surname": "Ali",
+      "shipping_address": "456 St, Alkhor, Zone56 ",
+      "money_balance": 1500
+    },
+    {
+      "username": "mohammed_ahmed",
+      "password": "seller123",
+      "role": "seller",
+      "email": "mohammed_ahmed@seller.com",
+      "full_name": "Emma Ahmed",
+      "company_name": "Face Products",
+      "bank_account": "3000000"
+    },
+    {
+      "username": "Fatma_Yosef",
+      "password": "seller456",
+      "role": "seller",
+      "email": "Fatma_Yosef@seller.com",
+      "full_name": "Michael Williams",
+      "company_name": "Lips Trading",
+      "bank_account": "60050000"
+    },
+    {
+      "username": "admin",
+      "password": "glamarket",
+      "role": "admin",
+      "email": "admin@admin.com",
+      "full_name": "Admin"
+    }
+  ]
+}
