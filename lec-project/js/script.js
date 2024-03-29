@@ -1,68 +1,92 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Get all quantity input fields
-    var quantityInputs = document.querySelectorAll(".quantity");
+  // Helper function to parse the price from a string
+  function parsePrice(priceString) {
+    return parseFloat(priceString.replace(/[^0-9.]/g, '')) || 0;
+  }
 
-    // Attach event listeners to each quantity input field
-    quantityInputs.forEach(function(input) {
-      input.addEventListener("change", function() {
-        // Get the quantity and price data attributes
-        var quantity = parseInt(this.value);
-        var price = parseFloat(this.dataset.price);
+  // Function to update the subtotal for a product
+  function updateProductSubtotal(input) {
+    var quantity = parseInt(input.value) || 0; // Safely parse the quantity, defaulting to 0 if not a number
+    var price = parsePrice(input.dataset.price); // Use the helper function to parse price
+    var subtotal = quantity * price;
+    var subtotalCell = input.closest('tr').querySelector('.subtotal');
+    subtotalCell.textContent = subtotal.toFixed(2) + " QR";
+    updateCartTotal(); // Update the cart total whenever the subtotal is updated
+  }
 
-        // Calculate subtotal
-        var subtotal = quantity * price;
-
-        // Update the subtotal in the corresponding table cell
-        var subtotalCell = this.parentElement.nextElementSibling;
-        subtotalCell.textContent = subtotal.toFixed(2) + " QR";
-      });
-    });
-    var quantityInputs = document.querySelectorAll(".quantity");
-
-  // Attach event listeners to each quantity input field
-  quantityInputs.forEach(function(input) {
-    input.addEventListener("change", updateSubtotal);
-  });
-
-  // Initial update of subtotal
-  updateSubtotal();
-});
-function updateSubtotal() {
-    var subtotalElements = document.querySelectorAll('.cart .subtotal'); // Select only within the cart section
+  // Function to update the cart subtotal and total
+  function updateCartTotal() {
+    var subtotalElements = document.querySelectorAll('.cart .subtotal');
     var cartSubtotal = 0;
-  
-    // Loop through each subtotal element and add its value to cartSubtotal
+
     subtotalElements.forEach(function(subtotalElement) {
-      var subtotalText = subtotalElement.textContent.trim();
-      var subtotalValue = parseFloat(subtotalText.split(" ")[0]); // Extract numerical value
-      if (!isNaN(subtotalValue)) { // Check if it's a valid number
-        cartSubtotal += subtotalValue;
-      }
+      cartSubtotal += parsePrice(subtotalElement.textContent);
     });
-  
-    // Update cart subtotal and total
-    var cartSubtotalCell = document.querySelector('#cartSubtotal');
-    cartSubtotalCell.textContent = cartSubtotal.toFixed(2) + " QR";
-  
-    var totalCell = document.querySelector('#total');
-    totalCell.textContent = cartSubtotal.toFixed(2) + " QR";
-    var proceedBtn = document.getElementById("proceedBtn");
 
-    proceedBtn.addEventListener("click", function() {
-    window.location.href = "shipping.html";
+    document.querySelector('#cartSubtotal').textContent = cartSubtotal.toFixed(2) + " QR";
+    document.querySelector('#total').textContent = cartSubtotal.toFixed(2) + " QR";
+  }
+
+  // Set up the quantity change event listeners
+  document.querySelectorAll(".quantity").forEach(function(input) {
+    input.addEventListener("change", function() {
+      updateProductSubtotal(input); // Update the subtotal when the quantity changes
+    });
   });
+
+  // Proceed to checkout button
+  document.getElementById('proceedBtn').addEventListener('click', function () {
+      const selectedPaymentMethod = document.querySelector('input[name="payment"]:checked');
+      if (!selectedPaymentMethod) {
+          alert('Please select a payment method.');
+          return;
+      }
+      
+      // Simulate bank amount check for card payment
+      if (selectedPaymentMethod.value === 'CARD') {
+        const total = parsePrice(document.querySelector('#total').textContent);
+          const hasEnoughInBank = checkBalance(total)
+          if (hasEnoughInBank) {
+              window.location.href = 'shipping.html';
+          } else {
+              alert('Insufficient funds in the bank.');
+          }
+      } else if (selectedPaymentMethod.value === 'COD') {
+          window.location.href = 'shipping.html';
+      }
+  });
+
+  // Check if a payment method is selected in the shipping page
+  const shippingForm = document.getElementById('shippingForm');
+  if (shippingForm) {
+      shippingForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const paymentMethod = document.querySelector('input[name="payment"]:checked');
+          if (!paymentMethod) {
+              alert('Please select a payment method.');
+              return false;
+          }
+
+          // Proceed based on payment method
+          if (paymentMethod.value === 'CARD') {
+              // Simulated bank check
+              alert('Proceeding with card payment.');
+              // Here you would implement the card payment logic
+          } else {
+              window.location.href = 'lastpage.html';
+          }
+      });
+  }
+});
+
+function checkBalance(amount){
+  const user={
+    name: 'Samia',
+    balance: 1000
+  }
+  if(user.balance>amount)
+    return true;
+  else{
+    return false;
+  }
 }
-document.querySelector('#cod').addEventListener('click', function() {
-  this.classList.add('green');
-  document.querySelector('#card').classList.remove('green');
-});
-
-document.querySelector('#card').addEventListener('click', function() {
-  this.classList.add('green');
-  document.querySelector('#cod').classList.remove('green');
-});
-
-document.querySelector('#shippingForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  window.location.href = 'lastpage.html'; 
-});
