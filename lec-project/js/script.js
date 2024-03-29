@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Helper function to parse the price from a string
+ 
+  
   function parsePrice(priceString) {
     return parseFloat(priceString.replace(/[^0-9.]/g, '')) || 0;
   }
 
-  // Function to update the subtotal for a product
   function updateProductSubtotal(input) {
-    var quantity = parseInt(input.value) || 0; // Safely parse the quantity, defaulting to 0 if not a number
-    var price = parsePrice(input.dataset.price); // Use the helper function to parse price
+    var quantity = parseInt(input.value) || 0; 
+    var price = parsePrice(input.dataset.price); 
     var subtotal = quantity * price;
     var subtotalCell = input.closest('tr').querySelector('.subtotal');
     subtotalCell.textContent = subtotal.toFixed(2) + " QR";
-    updateCartTotal(); // Update the cart total whenever the subtotal is updated
+    updateCartTotal(); 
   }
 
-  // Function to update the cart subtotal and total
   function updateCartTotal() {
     var subtotalElements = document.querySelectorAll('.cart .subtotal');
     var cartSubtotal = 0;
@@ -27,14 +26,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('#total').textContent = cartSubtotal.toFixed(2) + " QR";
   }
 
-  // Set up the quantity change event listeners
+ 
   document.querySelectorAll(".quantity").forEach(function(input) {
     input.addEventListener("change", function() {
-      updateProductSubtotal(input); // Update the subtotal when the quantity changes
+      updateProductSubtotal(input); 
     });
   });
 
-  // Proceed to checkout button
   document.getElementById('proceedBtn').addEventListener('click', function () {
       const selectedPaymentMethod = document.querySelector('input[name="payment"]:checked');
       if (!selectedPaymentMethod) {
@@ -42,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
           return;
       }
       
-      // Simulate bank amount check for card payment
       if (selectedPaymentMethod.value === 'CARD') {
         const total = parsePrice(document.querySelector('#total').textContent);
           const hasEnoughInBank = checkBalance(total)
@@ -56,8 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 
-  // Check if a payment method is selected in the shipping page
-  const shippingForm = document.getElementById('shippingForm');
+  const shippingForm = document.querySelector('#shippingForm');
   if (shippingForm) {
       shippingForm.addEventListener('submit', function (e) {
           e.preventDefault();
@@ -67,11 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
               return false;
           }
 
-          // Proceed based on payment method
           if (paymentMethod.value === 'CARD') {
-              // Simulated bank check
               alert('Proceeding with card payment.');
-              // Here you would implement the card payment logic
           } else {
               window.location.href = 'lastpage.html';
           }
