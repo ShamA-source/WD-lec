@@ -27,8 +27,10 @@
       "password": "seller123",
       "role": "seller",
       "email": "mohammed_ahmed@seller.com",
-      "full_name": "Emma Ahmed",
-      "company_name": "Face Products",
+      "full_name": "Mohammed Ahmed",
+      "company_name": "Makeup Haven",
+      "products": "face products",
+      "gender":"male",
       "bank_account": "3000000"
     },
     {
@@ -36,8 +38,9 @@
       "password": "seller456",
       "role": "seller",
       "email": "Fatma_Yosef@seller.com",
-      "full_name": "Michael Williams",
+      "full_name": "Fatma Yosef",
       "company_name": "Lips Trading",
+      "gender":"female",
       "bank_account": "60050000"
     },
     {
