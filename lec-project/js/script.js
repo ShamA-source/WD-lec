@@ -1,49 +1,85 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Get all quantity input fields
-    var quantityInputs = document.querySelectorAll(".quantity");
+ 
+  
+  function parsePrice(priceString) {
+    return parseFloat(priceString.replace(/[^0-9.]/g, '')) || 0;
+  }
 
-    // Attach event listeners to each quantity input field
-    quantityInputs.forEach(function(input) {
-      input.addEventListener("change", function() {
-        // Get the quantity and price data attributes
-        var quantity = parseInt(this.value);
-        var price = parseFloat(this.dataset.price);
+  function updateProductSubtotal(input) {
+    var quantity = parseInt(input.value) || 0; 
+    var price = parsePrice(input.dataset.price); 
+    var subtotal = quantity * price;
+    var subtotalCell = input.closest('tr').querySelector('.subtotal');
+    subtotalCell.textContent = subtotal.toFixed(2) + " QR";
+    updateCartTotal(); 
+  }
 
-        // Calculate subtotal
-        var subtotal = quantity * price;
+  function updateCartTotal() {
+    var subtotalElements = document.querySelectorAll('.cart .subtotal');
+    var cartSubtotal = 0;
 
-        // Update the subtotal in the corresponding table cell
-        var subtotalCell = this.parentElement.nextElementSibling;
-        subtotalCell.textContent = subtotal.toFixed(2) + " QR";
-      });
+    subtotalElements.forEach(function(subtotalElement) {
+      cartSubtotal += parsePrice(subtotalElement.textContent);
     });
-    var quantityInputs = document.querySelectorAll(".quantity");
 
-  // Attach event listeners to each quantity input field
-  quantityInputs.forEach(function(input) {
-    input.addEventListener("change", updateSubtotal);
+    document.querySelector('#cartSubtotal').textContent = cartSubtotal.toFixed(2) + " QR";
+    document.querySelector('#total').textContent = cartSubtotal.toFixed(2) + " QR";
+  }
+
+ 
+  document.querySelectorAll(".quantity").forEach(function(input) {
+    input.addEventListener("change", function() {
+      updateProductSubtotal(input); 
+    });
   });
 
-  // Initial update of subtotal
-  updateSubtotal();
-});
-function updateSubtotal() {
-    var subtotalElements = document.querySelectorAll('.cart .subtotal'); // Select only within the cart section
-    var cartSubtotal = 0;
-  
-    // Loop through each subtotal element and add its value to cartSubtotal
-    subtotalElements.forEach(function(subtotalElement) {
-      var subtotalText = subtotalElement.textContent.trim();
-      var subtotalValue = parseFloat(subtotalText.split(" ")[0]); // Extract numerical value
-      if (!isNaN(subtotalValue)) { // Check if it's a valid number
-        cartSubtotal += subtotalValue;
+  document.getElementById('proceedBtn').addEventListener('click', function () {
+      const selectedPaymentMethod = document.querySelector('input[name="payment"]:checked');
+      if (!selectedPaymentMethod) {
+          alert('Please select a payment method.');
+          return;
       }
-    });
-  
-    // Update cart subtotal and total
-    var cartSubtotalCell = document.getElementById('cartSubtotal');
-    cartSubtotalCell.textContent = cartSubtotal.toFixed(2) + " QR";
-  
-    var totalCell = document.getElementById('total');
-    totalCell.textContent = cartSubtotal.toFixed(2) + " QR";
+      
+      if (selectedPaymentMethod.value === 'CARD') {
+        const total = parsePrice(document.querySelector('#total').textContent);
+          const hasEnoughInBank = checkBalance(total)
+          if (hasEnoughInBank) {
+              window.location.href = 'shipping.html';
+          } else {
+              alert('Insufficient funds in the bank.');
+          }
+      } else if (selectedPaymentMethod.value === 'COD') {
+          window.location.href = 'shipping.html';
+      }
+  });
+
+  const shippingForm = document.querySelector('#shippingForm');
+  if (shippingForm) {
+      shippingForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const paymentMethod = document.querySelector('input[name="payment"]:checked');
+          if (!paymentMethod) {
+              alert('Please select a payment method.');
+              return false;
+          }
+
+          if (paymentMethod.value === 'CARD') {
+              alert('Proceeding with card payment.');
+          } else {
+              window.location.href = 'lastpage.html';
+          }
+      });
+  }
+});
+
+function checkBalance(amount){
+  const user={
+    name: 'Samia',
+    balance: 1000
+  }
+  if(user.balance>amount)
+    return true;
+  else{
+    return false;
+  }
 }
