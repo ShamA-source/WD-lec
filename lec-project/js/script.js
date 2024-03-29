@@ -72,14 +72,27 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-function checkBalance(amount){
-  const user={
-    name: 'Samia',
-    balance: 1000
+function checkBalance(amount) {
+
+  const loggedInUserJson = sessionStorage.getItem('loggedInUser');
+  if (!loggedInUserJson) {
+    console.error('No user is currently logged in.');
+    return false;
   }
-  if(user.balance>amount)
+
+  const loggedInUser = JSON.parse(loggedInUserJson);
+  const userBalance = parseFloat(loggedInUser.money_balance); 
+
+  console.log(`Checking balance. User balance: ${userBalance}, Required amount: ${amount}`);
+
+  
+  if (userBalance >= amount) {
+    console.log("Sufficient funds");
     return true;
-  else{
+  } else {
+    console.log("Insufficient funds.");
     return false;
   }
 }
+
+
