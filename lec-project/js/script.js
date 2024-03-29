@@ -41,9 +41,28 @@ function updateSubtotal() {
     });
   
     // Update cart subtotal and total
-    var cartSubtotalCell = document.getElementById('cartSubtotal');
+    var cartSubtotalCell = document.querySelector('#cartSubtotal');
     cartSubtotalCell.textContent = cartSubtotal.toFixed(2) + " QR";
   
-    var totalCell = document.getElementById('total');
+    var totalCell = document.querySelector('#total');
     totalCell.textContent = cartSubtotal.toFixed(2) + " QR";
+    var proceedBtn = document.getElementById("proceedBtn");
+
+    proceedBtn.addEventListener("click", function() {
+    window.location.href = "shipping.html";
+  });
 }
+document.querySelector('#cod').addEventListener('click', function() {
+  this.classList.add('green');
+  document.querySelector('#card').classList.remove('green');
+});
+
+document.querySelector('#card').addEventListener('click', function() {
+  this.classList.add('green');
+  document.querySelector('#cod').classList.remove('green');
+});
+
+document.querySelector('#shippingForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  window.location.href = 'lastpage.html'; 
+});
