@@ -1,53 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" class="index_page">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Glamarket</title>
-    <link rel="stylesheet" href="/css/index.css"/>
+    <title>User settings Page</title>
+    <link rel="stylesheet" href="/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
-
 <body>
-    <div class="headerAndNav">
-    <header>
-        <section id="header">
-            <a href="#"><img src="media/logo/Pink Bold Retro Aesthetic Makeup Artist Circle Logo (1).png" class="logo" width="150" height="auto"/></a>
-        
-    </header>
-    <nav>
-        <ul>
-            <li><a class="active" href="/index.html">Home</a></li>
-            <li><a href="/shop.html">Shop</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/cart.html"><i class="fa-solid fa-basket-shopping"></i></a></li>
-            <li><a href="/login.html">Login </a></li>
-        </ul>
-    </nav>
-    </div>
 
     <div class="container">
-        <div class="main">
-            <div class="topbar">
-                <a href="">Logout</a>
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab active">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="fa-regular fa-credit-card"></i>
+                </a>
+                <a onclick="tabs(2)" class="tab">
+                    <i class="fa-solid fa-tv"></i>
+                </a>
+                <a onclick="tabs(3)" class="tab">
+                    <i class="fa-solid fa-list-check"></i>
+                </a>
+                <a onclick="tabs(4)" class="tab">
+                    <i class="fa-solid fa-gear"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Personal Information</h1>
+                <h2>Full Name</h2>
+                <input type="text" class="input" value="Sham Amer">
+                <h2>Username</h2>
+                <input type="text" class="input" value="sham_amer">
+                <h2>Gender</h2>
+                <input type="text" class="input" value="Female">
+                <h2>Email</h2>
+                <input type="text" class="input" value="sham_amer@customer.com">
+                <h2>Password</h2>
+                <input type="password" class="input" value="123">
+                <div class="btn">Update</div>
             </div>
-            <div class="row">
-                <div class="col-md-4 mt-1">
-                    <div class="card text-center sidebar">
-                        <div class="card-body">
-                            <i class="fa-solid fa-user fa-rotate-by" width="150"></i>
-                            <div class="mt-3"></div>
-                        </div>
-                    </div>
-                </div>
 
+            <div class="payment tabShow">
+                <h1>Payment Information</h1>
+                <h2>Payment Method</h2>
+                <input type="text" class="input" value="MasterCard - 0202 **** **** 7336">
+                <h2>Billing Address</h2>
+                <input type="text" class="input" value="803 St, Doha, Zone55">
+                <h2>Zip Code</h2>
+                <input type="text" class="input" value="12345">
+                <h2>Billing Date</h2>
+                <input type="text" class="input" value="Mar 29,2024">
+                <h2>Balance</h2>
+                <input type="text" class="input" value="1000 QR">
+                <div class="btn">Update</div>
+            </div>
+
+            <div class="subscription tabShow">
+                <h1>Subscription Information</h1>
+                <h2>Payment Date</h2>
+                <p>May 12, 2020</p>
+                <h2>Next Charges</h2>
+                <p>80.56 QR <span>Includes tax</span></p>
+                <h2>Plan</h2>
+                <p>Limited Plan</p>
+                <h2>Monthly </h2>
+                <p>107.99 QR /month</p>
+                <div class="btn">Update</div>
+            </div>
+
+            <div class="privacy tabShow">
+                <h1>Privacy Settings</h1>
+                <h2>Manage Email Noti.</h2>
+                <p></p>
+                <h2>Manage Privacy Settings</h2>
+                <p></p>
+                <h2>View Terms Of Use</h2>
+                <p></p>
+                <h2>Personalized Ad Experience</h2>
+                <p></p>
+                <h2>Protect Account</h2>
+                <p></p>
+                <div class="btn">Update</div>
+            </div>
+
+            <div class="settings tabShow">
+                <h1>Account Settings</h1>
+                <h2>Sync WatchList</h2>
+                <p></p>
+                <h2>Hold Subscription</h2>
+                <p></p>
+                <h2>Cancel Subscription</h2>
+                <p></p>
+                <h2>Your Deevices</h2>
+                <p></p>
+                <h2>Referrals</h2>
+                <p></p>
+                <div class="btn">Update</div>
             </div>
         </div>
-
     </div>
+    </div> <div class="back-button-container">
+        <a href="/customer_page.html" class="back-button">Back</a>
+    </div>
+
+
+
+
+    <script src="/js/user.js"></script>
+    <script>
+        const tabBtn = document.querySelectorAll(".tab");
+        const tab = document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex) {
+            tab.forEach(function(node) {
+                node.style.display = "none";
+            });
+            tab[panelIndex].style.display = "block";
+        }
+
+        tabs(0);
+
+    tabBtn.forEach(function(button) {
+        button.addEventListener('click', function() {
+    // Remove active class from all tabs
+        tabBtn.forEach(btn => btn.classList.remove('active'));
+    // Add active class to the clicked tab
+        this.classList.add('active');
+    // Show the corresponding content panel
+        const index = [...tabBtn].indexOf(this);
+        tabs(index);
+        });
+    });
+</script>
+
+
+
     
 </body>
 </html>
