@@ -167,6 +167,7 @@ nav li a.active::after , nav li a:hover::after{
   color: var(--scarlet-400);
   
 }
+
 .pro-container {
   margin-bottom:30px;
   margin-top: 30px;
