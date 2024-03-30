@@ -33,15 +33,15 @@
             <div class="profile tabShow">
                 <h1>Personal Information</h1>
                 <h2>Full Name</h2>
-                <input type="text" class="input" value="Sham Amer">
+                <input type="text" class="input" value="" id="fullName">
                 <h2>Username</h2>
-                <input type="text" class="input" value="sham_amer">
+                <input type="text" class="input" value="" id="username">
                 <h2>Gender</h2>
-                <input type="text" class="input" value="Female">
+                <input type="text" class="input" value="" id="gender">
                 <h2>Email</h2>
-                <input type="text" class="input" value="sham_amer@customer.com">
+                <input type="text" class="input" value="" id="email">
                 <h2>Password</h2>
-                <input type="password" class="input" value="123">
+                <input type="password" class="input" value="" id="pass">
                 <div class="btn">Update</div>
             </div>
 
@@ -56,7 +56,7 @@
                 <h2>Billing Date</h2>
                 <input type="text" class="input" value="Mar 29,2024">
                 <h2>Balance</h2>
-                <input type="text" class="input" value="1000 QR">
+                <input type="text" class="input" value="" id="bal">
                 <div class="btn">Update</div>
             </div>
 
@@ -113,7 +113,21 @@
 
     
     <script>
-        
+        document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve the logged-in user data
+    const userData = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
+    // Check if userData exists
+    if(userData) {
+        console.log(userData.money_balance);
+        document.querySelector('#fullName').value = userData.full_name || '';
+        document.querySelector('#username').value = userData.username || '';
+        document.querySelector('#gender').value = userData.gender || '';
+        document.querySelector('#email').value=userData.email || ''
+        document.querySelector('#pass').value=userData.password || ''
+        document.querySelector('#bal').value= userData.money_balance.toString()  || ''
+    }
+});
         const tabBtn = document.querySelectorAll(".tab");
         const tab = document.querySelectorAll(".tabShow");
 
