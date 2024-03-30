@@ -74,18 +74,10 @@
             </div>
 
             <div class="purchase tabShow">
+                <div class="purchaseHistory">
                 <h1>Purchase History</h1>
-                <h2>Manage Email Noti.</h2>
-                <p></p>
-                <h2>Manage Privacy Settings</h2>
-                <p></p>
-                <h2>View Terms Of Use</h2>
-                <p></p>
-                <h2>Personalized Ad Experience</h2>
-                <p></p>
-                <h2>Protect Account</h2>
-                <p></p>
-                <div class="btn">Update</div>
+                <hr>
+                </div>
             </div>
 
             <div class="settings tabShow">
@@ -112,12 +104,12 @@
 
 
     
+    <script src="/js/script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    // Retrieve the logged-in user data
+
     const userData = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
-    // Check if userData exists
     if(userData) {
         console.log(userData.money_balance);
         document.querySelector('#fullName').value = userData.full_name || '';
@@ -142,19 +134,16 @@
 
     tabBtn.forEach(function(button) {
         button.addEventListener('click', function() {
-    // Remove active class from all tabs
         tabBtn.forEach(btn => btn.classList.remove('active'));
-    // Add active class to the clicked tab
         this.classList.add('active');
-    // Show the corresponding content panel
         const index = [...tabBtn].indexOf(this);
         tabs(index);
         });
+        displayPurchaseHistory();
     });
 
 
     </script>
-
 
     
 </body>
