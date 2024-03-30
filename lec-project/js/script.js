@@ -75,21 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const shippingForm = document.querySelector('#shippingForm');
   if (shippingForm) {
-    shippingForm.removeEventListener('submit', handleFormSubmit);
       shippingForm.addEventListener('submit', handleFormSubmit) 
       function handleFormSubmit(e){
-          e.preventDefault();
-          const paymentMethod = document.querySelector('input[name="payment"]:checked');
-          if (!paymentMethod) {
-              alert('Please select a payment method.');
-              return false;
-          }
-
-          if (paymentMethod.value === 'CARD') {
-              alert('Proceeding with card payment.');
-          } else {
-              window.location.href = 'lastpage.html';
-          }
+        window.location.href = 'lastpage.html';
       };
   }
 });
@@ -146,6 +134,7 @@ document.querySelector('#shippingForm').addEventListener('submit', function (e) 
 
     window.location.href = 'lastpage.html';
 });
+
 function displayPurchaseHistory() {
   const purchaseHistories = JSON.parse(localStorage.getItem('purchaseHistories')) || [];
   const historyContainer = document.querySelector('.purchaseHistory'); 

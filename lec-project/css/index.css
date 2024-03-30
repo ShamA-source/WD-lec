@@ -975,40 +975,7 @@ footer{
 .card.green {
     background-color: green;
 }
-@media screen and (min-width:40rem){
-  header{
-    box-shadow: none;
-  }
-  nav ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-self:cente;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .headerAndNav{
-    display: flex;
-    justify-self: unset;
-  
-  }
-  .pro .blog{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: calc(25% - 20px);
-  }
-  .pro-container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Three columns layout */
-    gap: 20px;
-  }
-  .blog-container{
-    display: grid;
-    grid-template-columns: auto auto auto; 
-    gap: 20px;
-  }
-}
+
 
 /* Shipping */
 .shipping {
@@ -1074,20 +1041,7 @@ input[type="submit"]:hover {
   font-size: 15px;
 }
 
-@media screen and (min-width: 60rem) {
-  .pro-container{
-    grid-template-columns: repeat(4, 1fr); 
-  }
-  .blog-container{
-    flex-grow: 2;
-  }
-  .form-details{
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-}
+
 
 /* customer profile */
 .profile-container {
@@ -1143,9 +1097,55 @@ input[type="submit"]:hover {
 
 
 
+@media screen and (min-width:40rem){
+  header{
+    box-shadow: none;
+  }
+  nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self:cente;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .headerAndNav{
+    display: flex;
+    justify-self: unset;
+  
+  }
+  .pro .blog{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: calc(25% - 20px);
+  }
+  .pro-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Three columns layout */
+    gap: 20px;
+  }
+  .blog-container{
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    gap: 20px;
+  }
+}
 
-
-
+@media screen and (min-width: 60rem) {
+  .pro-container{
+    grid-template-columns: repeat(4, 1fr); 
+  }
+  .blog-container{
+    flex-grow: 2;
+  }
+  .form-details{
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+}
 
 
 
