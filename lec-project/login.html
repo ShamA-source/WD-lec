@@ -24,7 +24,7 @@
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
 
-    <form class="login-form" method="post">
+    <form class="login-form" method="post" id="loginForm">
       <h2><i class="fas fa-lock"></i> Login</h2>
       <input type="text" placeholder="Username" required />
       <input type="password" placeholder="Password" required/>
@@ -34,6 +34,7 @@
   </div>
 </div>
 
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
   const loginForm = document.querySelector('.login-form');
@@ -41,8 +42,8 @@
   loginForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-      const username = loginForm.querySelector('input[type="text"]').value;
-      const password = loginForm.querySelector('input[type="password"]').value;
+          const username = loginForm.querySelector('input[type="text"]').value;
+          const password = loginForm.querySelector('input[type="password"]').value;
 
       fetch('case1/users.json')
         .then(response => response.json())
@@ -75,10 +76,6 @@
   });
 </script>
 <script src="/js/script.js"></script>
-
-
-
-
 
 </body>
 </html>

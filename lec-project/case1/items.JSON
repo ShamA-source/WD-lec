@@ -1,0 +1,171 @@
+[
+    {
+      "id": 0,
+      "image": "/media/Products/face/face1.PNG",
+      "title": "Cheek Palette",
+      "price": "50 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 1,
+      "image": "/media/Products/face/face2.PNG",
+      "title": "Holiday Première Iconic Masterpiece Blush",
+      "price": "60 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 2,
+      "image": "/media/Products/face/face3.PNG",
+      "title": "Holiday Première Charming Duo Blush",
+      "price": "65 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 3,
+      "image": "/media/Products/face/face4.PNG",
+      "title": "Green Me Blush",
+      "price": "55 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 4,
+      "image": "/media/Products/face/face5.PNG",
+      "title": "Glitter Baked Highlighter",
+      "price": "45 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 5,
+      "image": "/media/Products/face/face6.PNG",
+      "title": "Glow Fusion Powder Highlighter",
+      "price": "70 QR",
+      "category": "Face Product"
+    },
+    {
+      "id": 6,
+      "image": "/media/Products/eye/eye1.PNG",
+      "title": "Long lasting Mascara",
+      "price": "70 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 7,
+      "image": "/media/Products/eye/eye2.PNG",
+      "title": "Days In Bloom Length&Definition Mascara",
+      "price": "77 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 8,
+      "image": "/media/Products/eye/eye3.PNG",
+      "title": "Crazy '90s Intense Liquid Eyeliner",
+      "price": "40 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 9,
+      "image": "/media/Products/eye/eye4.PNG",
+      "title": "Days In Bloom Metamorphic Eyeshadow",
+      "price": "55 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 10,
+      "image": "/media/Products/eye/eye5.PNG",
+      "title": "Crazy '90s Colour Explosion Eyeshadow Palette",
+      "price": "80 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 11,
+      "image": "/media/Products/eye/eye6.PNG",
+      "title": "Green Me Eyeshadow Palette",
+      "price": "75 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 12,
+      "image": "/media/Products/eye/eye7.PNG",
+      "title": "Water Eyeshadow",
+      "price": "40 QR",
+      "category": "Eye Product"
+    },
+    {
+      "id": 13,
+      "image": "/media/Products/hand/hand1.PNG",
+      "title": "Nail Pulish",
+      "price": "20 QR",
+      "category": "Hand Product"
+    },
+    {
+      "id": 14,
+      "image": "/media/Products/hand/hand2.PNG",
+      "title": "Holiday Première Metallic Nail Lacquer",
+      "price": "20 QR",
+      "category": "Hand Product"
+    },
+    {
+      "id": 15,
+      "image": "/media/Products/hand/hand3.PNG",
+      "title": "Stellar Love Metallic Spark Nail Lacquer",
+      "price": "30 QR",
+      "category": "Hand Product"
+    },
+    {
+      "id": 16,
+      "image": "/media/Products/hand/hand4.PNG",
+      "title": "Days In Bloom Garden Vibes Nail Lacquer",
+      "price": "35 QR",
+      "category": "Hand Product"
+    },
+    {
+      "id": 17,
+      "image": "/media/Products/lip/lip1.PNG",
+      "title": "Lip Gloss",
+      "price": "50 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 18,
+      "image": "/media/Products/lip/lip2.PNG",
+      "title": "Days In Bloom Volumizing Lip Shine",
+      "price": "55 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 19,
+      "image": "/media/Products/lip/lip3.PNG",
+      "title": "Holiday Première Lipstick & Gloss",
+      "price": "70 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 20,
+      "image": "/media/Products/lip/lip4.PNG",
+      "title": "Ph Glow Lipstick",
+      "price": "40 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 21,
+      "image": "/media/Products/lip/lip5.PNG",
+      "title": "Green Me Matte Lipstick",
+      "price": "55 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 22,
+      "image": "/media/Products/lip/lip6.PNG",
+      "title": "Stellar Love Velvet Caress Lipstick",
+      "price": "60 QR",
+      "category": "Lip Product"
+    },
+    {
+      "id": 23,
+      "image": "/media/Products/lip/lip7.PNG",
+      "title": "Days In Bloom 3-In-1 Silky All-Over",
+      "price": "65 QR",
+      "category": "Lip Product"
+    }
+  ]
+  
