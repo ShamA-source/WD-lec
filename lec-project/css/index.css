@@ -1076,7 +1076,7 @@ input[type="submit"]:hover {
 
 @media screen and (min-width: 60rem) {
   .pro-container{
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
   }
   .blog-container{
     flex-grow: 2;
@@ -1140,6 +1140,9 @@ input[type="submit"]:hover {
   font-size: large;
   font-weight: 400;
 }
+
+
+
 
 
 

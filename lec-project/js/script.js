@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const shippingForm = document.querySelector('#shippingForm');
   if (shippingForm) {
-      shippingForm.addEventListener('submit', function (e) {
+    shippingForm.removeEventListener('submit', handleFormSubmit);
+      shippingForm.addEventListener('submit', handleFormSubmit) 
+      function handleFormSubmit(e){
           e.preventDefault();
           const paymentMethod = document.querySelector('input[name="payment"]:checked');
           if (!paymentMethod) {
@@ -88,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
               window.location.href = 'lastpage.html';
           }
-      });
+      };
   }
 });
 
@@ -152,29 +154,34 @@ function displayPurchaseHistory() {
     console.error("Couldn't find the container to display purchase history.");
     return;
   }
+  historyContainer.innerHTML = '';
+  const nonEmptyHistories = purchaseHistories.filter(history => history.items && history.items.length);
 
+  nonEmptyHistories.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const latestTwoHistories = nonEmptyHistories.slice(0, 2);
 
-  purchaseHistories.forEach(history => {
-    const purchaseDateElement = document.createElement('h2');
-    purchaseDateElement.textContent = `Purchase Date: ${history.date}`;
+  latestTwoHistories.forEach(history => {
+    const purchaseDateElement = document.createElement('p');
+    purchaseDateElement.textContent = `Purchase Date: ${formatDate(history.date)}`;
     historyContainer.appendChild(purchaseDateElement);
-    if (history.items && history.items.length) {
+
     const itemsElement = document.createElement('ul');
     history.items.forEach(item => {
-      console.log('Item:', item);
       const itemElement = document.createElement('li');
-      itemElement.textContent = `Item: ${item.name} - Quantity: ${item.quantity}`;
+      itemElement.textContent = `Item Name: ${item.name} - Quantity: ${item.quantity}`;
       itemsElement.appendChild(itemElement);
     });
     historyContainer.appendChild(itemsElement);
-  }
-
-    const shippingDetailsElement = document.createElement('p');
-    shippingDetailsElement.textContent = `Shipping Address: ${history.shipping.state}, ${history.shipping.houseNumber}, ${history.shipping.streetNumber}`;
-    historyContainer.appendChild(shippingDetailsElement);
 
     const separator = document.createElement('hr');
     historyContainer.appendChild(separator);
   });
 }
+
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-GB', options);
+}
+
+
 
