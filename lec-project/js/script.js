@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
             quantity: parseInt(quantityInput.value, 10),
             subtotal: parsePrice(subtotalElement.textContent)
         });
+       
     });
 
     document.querySelector('#cartSubtotal').textContent = cartSubtotal.toFixed(2) + " QR";
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
       items: cartItems,
       total: cartSubtotal.toFixed(2) + " QR"
   };
+
   sessionStorage.setItem('purchaseDetails', JSON.stringify(purchaseDetails));
   }
 
@@ -128,7 +130,7 @@ document.querySelector('#shippingForm').addEventListener('submit', function (e) 
         shipping: shippingDetails
     };
 
-    let purchaseHistories = JSON.parse(localStorage.getItem('purchaseHistories')) || [];
+    const purchaseHistories = JSON.parse(localStorage.getItem('purchaseHistories')) || [];
     purchaseHistories.push(purchaseHistory);
     localStorage.setItem('purchaseHistories', JSON.stringify(purchaseHistories));
 
@@ -138,18 +140,28 @@ document.querySelector('#shippingForm').addEventListener('submit', function (e) 
 function displayPurchaseHistory() {
   const purchaseHistories = JSON.parse(localStorage.getItem('purchaseHistories')) || [];
   const historyContainer = document.querySelector('.purchaseHistory'); 
+  const loggedInUserJson = sessionStorage.getItem('loggedInUser');
+
+  if (!loggedInUserJson) {
+    console.log('User not logged in. Cannot display purchase history.');
+    if (historyContainer) {
+      historyContainer.innerHTML = '<p class="loginMessage">Please log in to view your purchase history.</p>';
+    }
+    return;
+  }
 
   if (!historyContainer) {
     console.error("Couldn't find the container to display purchase history.");
     return;
   }
+
   historyContainer.innerHTML = '';
   const nonEmptyHistories = purchaseHistories.filter(history => history.items && history.items.length);
 
+  // Remove the slicing to display all histories
   nonEmptyHistories.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const latestTwoHistories = nonEmptyHistories.slice(0, 2);
 
-  latestTwoHistories.forEach(history => {
+  nonEmptyHistories.forEach(history => {
     const purchaseDateElement = document.createElement('p');
     purchaseDateElement.textContent = `Purchase Date: ${formatDate(history.date)}`;
     historyContainer.appendChild(purchaseDateElement);
@@ -171,6 +183,5 @@ function formatDate(dateString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-GB', options);
 }
-
 
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Seller's Listing Page</title>
+</head>
+<body>
+
+<h1>List an Item for Sale</h1>
+
+<form id="listingForm" action="/submit-your-listing-endpoint" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+    </div>
+    
+    <div>
+        <label for="itemImage">Item Image:</label>
+        <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+    </div>
+    
+    <div>
+        <label for="itemPrice">Item Price:</label>
+        <input type="text" id="itemPrice" name="itemPrice" pattern="^\d+(\.\d{1,2})?$" required>
+        <small>Enter the price in your preferred currency format (e.g., 19.99)</small>
+    </div>
+    
+    <div>
+        <button type="submit">List Item</button>
+    </div>
+</form>
+
+<script>
+    // JavaScript to handle the form submission
+    document.getElementById('listingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Construct FormData object from form
+        var formData = new FormData(this);
+
+        // TODO: Add AJAX request or fetch to send the formData to your server.
+        // This is where you would handle the form submission, such as using Fetch API.
+        console.log('Form submitted. Implement AJAX request here.');
+
+        // Example: console log the form data
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+    });
+</script>
+
+</body>
+</html>
