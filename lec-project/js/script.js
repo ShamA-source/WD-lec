@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
               alert('Insufficient funds in the bank.');
           }
       } else if (selectedPaymentMethod.value === 'COD') {
+          captureAndStorePurchaseDetails();
           window.location.href = 'shipping.html';
       }
   });
@@ -94,5 +95,3 @@ function checkBalance(amount) {
     return false;
   }
 }
-
-

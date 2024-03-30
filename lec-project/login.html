@@ -36,8 +36,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    loginForm.addEventListener('submit', function(event) {
-      event.preventDefault();
+  const loginForm = document.querySelector('.login-form');
+
+  loginForm.addEventListener('submit', function(event) {
+  event.preventDefault();
 
       const username = loginForm.querySelector('input[type="text"]').value;
       const password = loginForm.querySelector('input[type="password"]').value;
@@ -65,8 +67,8 @@
           } else {
             alert('Invalid username or password');
           }
-          const loginForm = document.querySelector('.login-form');
-          console.log("Stored user:", user);
+          //const loginForm = document.querySelector('.login-form');
+          //console.log("Stored user:", user);
         })
         .catch(error => console.error('Error fetching users:', error));
     });
