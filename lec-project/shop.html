@@ -12,7 +12,26 @@
     <header>
         <section id="header">
             <a href="#"><img src="media/logo/Pink Bold Retro Aesthetic Makeup Artist Circle Logo (1).png" class="logo" width="150" height="auto"/></a>
-        
+        </section>
+        <style>
+            .notification {
+                display: none;
+                position: fixed;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                color: #333;
+                font-size: 20px;
+            }
+            </style>
+            <div id="notification" class="notification">Added to Cart!</div>
+
+            
     </header>
     <nav>
         <ul>
@@ -21,7 +40,7 @@
             <li><a href="/services.html">Services</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/cart.html"><i class="fa-solid fa-basket-shopping"></i></a></li>
+            <li><a href="/cart.html">View Cart</a></li>
             <li><a href="/searchengine.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
             <li><a href="/login.html">Login </a></li>
             <li><a href="/customer.html"><i class="fa-solid fa-user fa-rotate-by"></i> </a></li>
@@ -497,27 +516,68 @@
 </html>
 
 <script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const cartIcons = document.querySelectorAll('.fa-basket-shopping');
+    //     cartIcons.forEach(icon => {
+    //         icon.addEventListener('click', addToCart);
+    //     });
+    
+    //     function addToCart(event) {
+    //         const product = event.target.closest('.pro');
+    //         const productId = product.getAttribute('data-id');
+    //         const productName = product.querySelector('h5').innerText;
+    //         const productPrice = product.querySelector('h4').innerText;
+    //         const productImage = product.querySelector('img').src;
+    
+    //         const cartItem = { id: productId, name: productName, price: productPrice, image: productImage };
+    //         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    //         cart.push(cartItem);
+    //         localStorage.setItem('cart', JSON.stringify(cart));
+    
+    //         window.location.href = '/cart.html';
+    //     }
+    // });
     document.addEventListener('DOMContentLoaded', function() {
-        const cartIcons = document.querySelectorAll('.fa-basket-shopping');
-        cartIcons.forEach(icon => {
-            icon.addEventListener('click', addToCart);
-        });
-    
-        function addToCart(event) {
+    const cartIcons = document.querySelectorAll('.fa-basket-shopping');
+    const notification = document.getElementById('notification');
+    cartIcons.forEach(icon => {
+        icon.addEventListener('click', function(event) {
+            event.preventDefault();
             const product = event.target.closest('.pro');
-            const productId = product.getAttribute('data-id');
             const productName = product.querySelector('h5').innerText;
-            const productPrice = product.querySelector('h4').innerText;
+            const productPrice = parseFloat(product.querySelector('h4').innerText.replace(' QR', ''));
             const productImage = product.querySelector('img').src;
-    
-            // Add the product to the cart (You can use localStorage or sessionStorage for simplicity)
-            const cartItem = { id: productId, name: productName, price: productPrice, image: productImage };
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(cartItem);
-            localStorage.setItem('cart', JSON.stringify(cart));
-    
-            // Redirect to the cart page
-            window.location.href = '/cart.html';
-        }
+
+            const cartItem = {
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            };
+
+            addToCart(cartItem);
+            showNotification("Added to Cart!");
+        });
     });
+
+    function addToCart(item) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let existingItem = cart.find(cartItem => cartItem.name === item.name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push(item);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    function showNotification(message) {
+        notification.textContent = message;
+        notification.style.display = 'block';
+
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 2000);
+    }
+});
+
     </script>
