@@ -495,3 +495,29 @@
 </div>
 </footer>   
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cartIcons = document.querySelectorAll('.fa-basket-shopping');
+        cartIcons.forEach(icon => {
+            icon.addEventListener('click', addToCart);
+        });
+    
+        function addToCart(event) {
+            const product = event.target.closest('.pro');
+            const productId = product.getAttribute('data-id');
+            const productName = product.querySelector('h5').innerText;
+            const productPrice = product.querySelector('h4').innerText;
+            const productImage = product.querySelector('img').src;
+    
+            // Add the product to the cart (You can use localStorage or sessionStorage for simplicity)
+            const cartItem = { id: productId, name: productName, price: productPrice, image: productImage };
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Redirect to the cart page
+            window.location.href = '/cart.html';
+        }
+    });
+    </script>
