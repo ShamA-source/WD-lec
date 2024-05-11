@@ -540,6 +540,7 @@
     document.addEventListener('DOMContentLoaded', function() {
     const cartIcons = document.querySelectorAll('.fa-basket-shopping');
     const notification = document.getElementById('notification');
+    
     cartIcons.forEach(icon => {
         icon.addEventListener('click', function(event) {
             event.preventDefault();
@@ -547,8 +548,10 @@
             const productName = product.querySelector('h5').innerText;
             const productPrice = parseFloat(product.querySelector('h4').innerText.replace(' QR', ''));
             const productImage = product.querySelector('img').src;
+            const productId = product.getAttribute('data-id'); // Add this line
 
             const cartItem = {
+                id: productId, // Use the product ID
                 name: productName,
                 price: productPrice,
                 image: productImage,
@@ -562,7 +565,7 @@
 
     function addToCart(item) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let existingItem = cart.find(cartItem => cartItem.name === item.name);
+        let existingItem = cart.find(cartItem => cartItem.id === item.id); // Change to check ID
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
@@ -570,6 +573,7 @@
         }
         localStorage.setItem('cart', JSON.stringify(cart));
     }
+
     function showNotification(message) {
         notification.textContent = message;
         notification.style.display = 'block';
